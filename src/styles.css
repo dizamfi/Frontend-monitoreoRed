@@ -1,0 +1,34 @@
+/* :root {
+  /* color-scheme: light dark; */
+  /* color: rgba(255, 255, 255, 0.87); */
+  /* background-color: #242424; */
+
+/* 
+:root {
+  background-color: rgb(242, 245, 249);
+}
+
+html {
+  padding: 0px;
+  margin: 0px;
+} */
+
+.content {
+  height: 100%;
+  width: 100%;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+body{
+  margin: 0px;
+}
+
+.app {
+  display: flex;
+  position: relative;
+}
+
+.box-shadow{
+  box-shadow: 2px 2px 20px 1px black;
+}
+
