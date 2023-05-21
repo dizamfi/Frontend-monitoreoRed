@@ -130,7 +130,7 @@ export const LoginPage = () => {
                     variant="contained"
                     fullWidth
                   >
-                    Iniciar sesión
+                    Ingresar
                   </Button>
                 </Grid>
               </Grid>

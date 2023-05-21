@@ -24,6 +24,28 @@ export const loginUser = ({ email, password }) => {
   };
 };
 
+export const registerUser = ({ name, lastName, email, password }) => {
+  return async (dispatch) => {
+    dispatch(checkingCredentials());
+
+    try {
+      const { data } = await monitoreoApi.post("/auth/create", {
+        name, lastName, email, password
+      });
+      localStorage.setItem("token", data.token);
+      localStorage.setItem("initDate-token", new Date().getTime());
+      dispatch(
+        login({ name: data.name, lastName: data.lastName, uid: data.uid })
+      );
+      
+    } catch (error) {
+      dispatch(logout(error.response.data.message));
+      console.log("Error");
+      console.log(error.response.data);
+    }
+  }
+}
+
 export const logoutUser = () => {
   return (dispatch) => {
     try {
