@@ -1,13 +1,13 @@
 import { Box, IconButton, Typography, useTheme } from "@mui/material";
 import { tonalidad } from "../../theme/theme";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useProSidebar, Sidebar, Menu, MenuItem } from "react-pro-sidebar";
 import SwitchLeftOutlinedIcon from "@mui/icons-material/SwitchLeftOutlined";
 import SwitchRightOutlinedIcon from "@mui/icons-material/SwitchRightOutlined";
-import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import PersonalVideoIcon from "@mui/icons-material/PersonalVideo";
 import SettingsInputSvideoIcon from "@mui/icons-material/SettingsInputSvideo";
 import GridViewRoundedIcon from "@mui/icons-material/GridViewRounded";
+import MenuRoundedIcon from "@mui/icons-material/MenuRounded";
 import { Link } from "react-router-dom";
 
 const Item = ({ title, to, icon, selected, setSelected }) => {
@@ -34,6 +34,25 @@ export const MySideBar = () => {
   const [selected, setSelected] = useState("Dashboard");
   const { collapseSidebar, toggleSidebar, collapsed, broken, rtl } =
     useProSidebar();
+
+
+  useEffect(() => {
+    const handleResize = () => {
+      const screenWidth = window.innerWidth;
+      if (screenWidth < 960) {
+        collapseSidebar(true);
+      } else {
+        collapseSidebar(false);
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   return (
     <Box
       sx={{
@@ -48,7 +67,6 @@ export const MySideBar = () => {
         rootStyles={{
           border: "none",
         }}
-        breakPoint="md"
         backgroundColor={colors.primary[600]}
       >
         <Menu
@@ -71,67 +89,32 @@ export const MySideBar = () => {
             },
           }}
         >
-          <MenuItem
-            style={{ paddingTop: "8px" }}
-            icon={
-              collapsed && (
-                <IconButton onClick={() => collapseSidebar()}>
-                  <SwitchRightOutlinedIcon
-                    sx={{
-                      fontSize: "30px",
-                      color: `${colors.green[500]} !important`,
-                    }}
-                  />
-                </IconButton>
-              )
-            }
-          >
-            {!collapsed && (
-              <Box
-                display="flex"
-                justifyContent="end"
-                // alignItems="center"
+          {collapsed ? (
+            <Box display="flex" justifyContent="center" margin="20px">
+              <IconButton
+                onClick={() => collapseSidebar()}
+                sx={{ textAlign: "center" }}
               >
-                {/* <Box
-                  display="flex"
-                  justifyContent="center"
-                  alignItems="center"
-                  mt="70px"
-                  ml="60px"
-                  
-                  // alignItems="center"
+                <MenuRoundedIcon
                   sx={{
-                    "& .logo": {
-                      backgroundColor: "transparent",
-                      fontSize: "20px"
-                    },
+                    fontSize: "30px",
+                    color: `${colors.green[500]} !important`,
                   }}
-                >
-                  <img
-                    className="logo"
-                    alt="logo"
-                    width="100px"
-                    height="100px"
-                    src={"../../assets/cti-logo.png"}
-                    style={{ cursor: "pointer", }}
-                  />
-                </Box> */}
-                <IconButton onClick={() => collapseSidebar()}>
-                  <SwitchLeftOutlinedIcon
-                    sx={{
-                      fontSize: "30px",
-                      color: `${colors.green[500]} !important`,
-                    }}
-                  />
-                </IconButton>
-              </Box>
-            )}
-          </MenuItem>
-
-          {/* {!collapsed && (
-           
-            
-            )} */}
+                />
+              </IconButton>
+            </Box>
+          ) : (
+            <Box display="flex" justifyContent="end" margin="20px">
+              <IconButton onClick={() => collapseSidebar()}>
+                <SwitchLeftOutlinedIcon
+                  sx={{
+                    fontSize: "30px",
+                    color: `${colors.green[500]} !important`,
+                  }}
+                />
+              </IconButton>
+            </Box>
+          )}
 
           <Box paddingTop="70px">
             <Item
