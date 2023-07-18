@@ -32,3 +32,30 @@ body{
   box-shadow: 2px 2px 20px 1px black;
 }
 
+/* .box-shadow-dashboard{
+  box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.76);
+} */
+
+
+::-webkit-scrollbar {
+  width: 8px;
+  margin: 0px;
+  padding: 0px;
+} 
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #3c3434;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #141b2d;
+} 
+

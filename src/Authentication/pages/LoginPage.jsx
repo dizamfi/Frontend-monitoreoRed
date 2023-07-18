@@ -7,6 +7,7 @@ import * as yup from "yup";
 import { loginUser } from "../../store/authentication/thunks";
 import ReportGmailerrorredRoundedIcon from "@mui/icons-material/ReportGmailerrorredRounded";
 
+
 const initialValues = {
   email: "",
   password: "",
@@ -34,6 +35,7 @@ export const LoginPage = () => {
   const onFormSubmit = (values) => {
     console.log(values);
     dispatch(loginUser(values));
+    // dispatch(registrosNmap());  // PRUEBAA
   };
 
   return (

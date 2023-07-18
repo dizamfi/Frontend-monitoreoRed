@@ -10,29 +10,40 @@ export const tonalidad = (mode) => ({
   ...(mode === "dark"
     ? {
         yellow: {
-            100: "#fcead0",
-            200: "#f9d6a1",
-            300: "#f5c171",
-            400: "#f2ad42",
-            500: "#ef9813",
-            600: "#bf7a0f",
-            700: "#8f5b0b",
-            800: "#603d08",
-            900: "#301e04"
+          100: "#fcead0",
+          200: "#f9d6a1",
+          300: "#f5c171",
+          400: "#f2ad42",
+          500: "#ef9813",
+          600: "#bf7a0f",
+          700: "#8f5b0b",
+          800: "#603d08",
+          900: "#301e04",
+        },
+
+        red: {
+          100: "#ffcccc",
+          200: "#ff9999",
+          300: "#ff6666",
+          400: "#ff3333",
+          500: "#ff0000",
+          600: "#cc0000",
+          700: "#990000",
+          800: "#660000",
+          900: "#330000",
         },
 
         primary: {
           100: "#d1d0d0",
           200: "#a3a1a1",
-          300: "#747272",
-          400: "#464343",
+          300: "#0e0c0cb0",
+          400: "#181414",
           500: "#181414",
           600: "#131010",
           700: "#0e0c0c",
           800: "#0a0808",
-          900: "#050404"
+          900: "#050404",
         },
-
 
         green: {
           100: "#d5e5d6",
@@ -71,18 +82,29 @@ export const tonalidad = (mode) => ({
           900: "#fcead0",
         },
 
+        red: {
+          100: "#ffcccc",
+          200: "#ff9999",
+          300: "#ff6666",
+          400: "#ff3333",
+          500: "#ff0000",
+          600: "#cc0000",
+          700: "#990000",
+          800: "#660000",
+          900: "#330000",
+        },
+
         primary: {
           100: "#050404",
           200: "#0a0808",
           300: "#0e0c0c",
           400: "#131010",
-          500: "#181414",
+          500: "#fcfdfe",
           600: "#464343",
           700: "#747272",
           800: "#a3a1a1",
           900: "#d1d0d0",
         },
-
 
         green: {
           100: "#09190a",
@@ -116,31 +138,29 @@ export const themeConf = (mode) => {
   return {
     palette: {
       mode: mode,
-      ...(mode === 'dark'
+      ...(mode === "dark"
         ? {
-          primary: {
-            main: colors.primary[500]
-          },
-          secondary: {
-            main: colors.yellow[500]
-          },
-          background: {
-            default: colors.primary[500]
+            primary: {
+              main: colors.primary[500],
+            },
+            secondary: {
+              main: colors.primary[500],
+            },
+            background: {
+              default: colors.primary[600],
+            },
           }
-        
-        }
-      : {
-        primary: {
-          main: colors.primary[100]
-        },
-        secondary: {
-          main: colors.yellow[500]
-        },
-        background: {
-          default: colors.white[500]
-        }
-      
-      })
+        : {
+            primary: {
+              main: colors.white[100],
+            },
+            secondary: {
+              main: colors.white[100],
+            },
+            background: {
+              default: colors.white[600],
+            },
+          }),
     },
 
     typography: {
@@ -148,34 +168,34 @@ export const themeConf = (mode) => {
       fontSize: 12,
       h1: {
         fontFamily: ["Source Sans Pro", "sans-serif"].join(","),
-        fontSize: 40
+        fontSize: 40,
       },
       h2: {
         fontFamily: ["Source Sans Pro", "sans-serif"].join(","),
-        fontSize: 32
+        fontSize: 32,
       },
       h3: {
         fontFamily: ["Source Sans Pro", "sans-serif"].join(","),
-        fontSize: 24
+        fontSize: 24,
       },
       h4: {
         fontFamily: ["Source Sans Pro", "sans-serif"].join(","),
-        fontSize: 20
+        fontSize: 20,
       },
       h5: {
         fontFamily: ["Source Sans Pro", "sans-serif"].join(","),
-        fontSize: 16
+        fontSize: 16,
       },
       h6: {
         fontFamily: ["Source Sans Pro", "sans-serif"].join(","),
-        fontSize: 14
-      }
-    }
-  }
-}
+        fontSize: 14,
+      },
+    },
+  };
+};
 
 export const ColorModeContext = createContext({
-  toggleColorMode: () => {}
+  toggleColorMode: () => {},
 });
 
 export const useMode = () => {
@@ -183,7 +203,7 @@ export const useMode = () => {
   const colorMode = useMemo(
     () => ({
       toggleColorMode: () =>
-        setMode((prevMode) => (prevMode === "dark" ? "light" : "dark"))
+        setMode((prevMode) => (prevMode === "dark" ? "light" : "dark")),
     }),
     []
   );

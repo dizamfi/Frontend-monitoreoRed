@@ -4,14 +4,12 @@ import { DashboardPage } from "../pages/DashboardPage";
 import { DeviceConectedPage } from "../pages/DeviceConectedPage";
 import { MySideBar } from "../components/MySideBar";
 import { TopBar } from "../components/TopBar";
+import { PortsPage } from "../pages/PortsPage";
+import { AlertasPage } from "../pages/AlertasPage";
 
 export const MonitoringRoutes = () => {
   return (
-    // <Routes>
-    //   <Route path="/" element={<DashboardPage />} />
-    //   {/* <Route path="/devices" element={<DeviceConectedPage />} /> */}
-    //   <Route path="/*" element={<Navigate to="/" />} />
-    // </Routes>
+   
 
     <AppTheme>
       <div className="app">
@@ -22,6 +20,8 @@ export const MonitoringRoutes = () => {
           <Routes>
             <Route path="/" element={<DashboardPage />} />
             <Route path="/devices" element={<DeviceConectedPage />} />
+            <Route path="/ports" element={<PortsPage />} />
+            <Route path="/alerts" element={<AlertasPage />} />
             <Route path="/*" element={<Navigate to="/" />} />
           </Routes>
         </main>

@@ -4,7 +4,7 @@ import { getVariablesEnv } from "./getVariablesEnv";
 const { URL_API } = getVariablesEnv();
 
 const monitoreoApi = axios.create({
-  baseURL: 'http://localhost:5050'
+  baseURL: 'http://localhost:5050/api'
 });
 
 // Configuración de interceptores

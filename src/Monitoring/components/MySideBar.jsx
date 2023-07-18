@@ -7,7 +7,10 @@ import SwitchRightOutlinedIcon from "@mui/icons-material/SwitchRightOutlined";
 import PersonalVideoIcon from "@mui/icons-material/PersonalVideo";
 import SettingsInputSvideoIcon from "@mui/icons-material/SettingsInputSvideo";
 import GridViewRoundedIcon from "@mui/icons-material/GridViewRounded";
+import CampaignIcon from "@mui/icons-material/Campaign";
 import MenuRoundedIcon from "@mui/icons-material/MenuRounded";
+import TimelineRoundedIcon from "@mui/icons-material/TimelineRounded";
+import LeaderboardRoundedIcon from "@mui/icons-material/LeaderboardRounded";
 import { Link } from "react-router-dom";
 
 const Item = ({ title, to, icon, selected, setSelected }) => {
@@ -35,7 +38,6 @@ export const MySideBar = () => {
   const { collapseSidebar, toggleSidebar, collapsed, broken, rtl } =
     useProSidebar();
 
-
   useEffect(() => {
     const handleResize = () => {
       const screenWidth = window.innerWidth;
@@ -57,6 +59,7 @@ export const MySideBar = () => {
     <Box
       sx={{
         display: "flex",
+        position: "sticky",
         height: "100vh",
         top: 0,
         border: 0,
@@ -64,10 +67,11 @@ export const MySideBar = () => {
       }}
     >
       <Sidebar
+        width="30vh"
         rootStyles={{
           border: "none",
         }}
-        backgroundColor={colors.primary[600]}
+        backgroundColor={colors.primary[400]}
       >
         <Menu
           menuItemStyles={{
@@ -83,26 +87,38 @@ export const MySideBar = () => {
                   borderRadius: "30px",
 
                   "&:hover": {
-                    backgroundColor: colors.primary[500],
+                    backgroundColor: colors.primary[300],
                   },
                 };
             },
           }}
         >
           {collapsed ? (
-            <Box display="flex" justifyContent="center" margin="20px">
-              <IconButton
-                onClick={() => collapseSidebar()}
-                sx={{ textAlign: "center" }}
-              >
-                <MenuRoundedIcon
-                  sx={{
-                    fontSize: "30px",
-                    color: `${colors.green[500]} !important`,
-                  }}
+            <>
+              <Box display="flex" justifyContent="center" margin="20px">
+                <IconButton
+                  onClick={() => collapseSidebar()}
+                  sx={{ textAlign: "center" }}
+                >
+                  <MenuRoundedIcon
+                    sx={{
+                      fontSize: "30px",
+                      color: `${colors.green[500]} !important`,
+                    }}
+                  />
+                </IconButton>
+              </Box>
+
+              {/* <Box display="flex" justifyContent="center" margin="20px">
+                <img
+                  alt="logo"
+                  width="60px"
+                  height="25px"
+                  src={"../../assets/cti-logo2.png"}
+                  style={{ cursor: "pointer" }}
                 />
-              </IconButton>
-            </Box>
+              </Box> */}
+            </>
           ) : (
             <Box display="flex" justifyContent="end" margin="20px">
               <IconButton onClick={() => collapseSidebar()}>
@@ -113,8 +129,35 @@ export const MySideBar = () => {
                   }}
                 />
               </IconButton>
+              {/* <Box
+                p={1}
+                ml="55px"
+                display="flex"
+                justifyContent={"center"}
+                flexGrow={1}
+              >
+                <img
+                  alt="logo"
+                  width="100px"
+                  height="100px"
+                  src={"../../assets/image2.png"}
+                  style={{ cursor: "pointer", borderRadius: "100%" }}
+                />
+              </Box>
+
+              <Box p={1} justifyContent="end"></Box> */}
             </Box>
           )}
+
+          {/* <Box display="flex" justifyContent="center" margin="20px">
+            <img
+              alt="logo"
+              width="100px"
+              height="100px"
+              src={"../../assets/cti-logo.png"}
+              style={{ cursor: "pointer", borderRadius: "100%" }}
+            />
+          </Box> */}
 
           <Box paddingTop="70px">
             <Item
@@ -142,8 +185,49 @@ export const MySideBar = () => {
 
             <Item
               title="Puertos"
-              to="/port"
+              to="/ports"
               icon={<SettingsInputSvideoIcon />}
+              selected={selected}
+              setSelected={setSelected}
+            />
+
+            <Item
+              title="Alertas"
+              to="/alerts"
+              icon={<CampaignIcon />}
+              selected={selected}
+              setSelected={setSelected}
+            />
+          </Box>
+
+          <Box paddingTop="50px">
+            <Typography
+              // variant="h6"
+              style={{ color: colors.white[700] }}
+              sx={{ m: collapsed ? "0px 10px 10px" : "0px 27px 10px" }}
+            >
+              Estadística
+            </Typography>
+
+            <Item
+              title="Line Chart"
+              to="/"
+              icon={<TimelineRoundedIcon />}
+              selected={selected}
+              setSelected={setSelected}
+            />
+            {/* <Typography
+              variant="h6"
+              color={colors.white[400]}
+              sx={{ m: "15px 20px 5px 20px" }}
+            >
+              Data
+            </Typography> */}
+
+            <Item
+              title="Gráficos"
+              to="/devices"
+              icon={<LeaderboardRoundedIcon />}
               selected={selected}
               setSelected={setSelected}
             />

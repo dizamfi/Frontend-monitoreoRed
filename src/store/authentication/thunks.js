@@ -65,7 +65,7 @@ export const checkAutentication = () => {
     if (!token) return dispatch(logout());
 
     try {
-      const { data } = await monitoreoApi.get("/auth//validarUser");
+      const { data } = await monitoreoApi.get("/auth/validarUser");
       console.log({ data });
       localStorage.setItem("token", data.token);
       localStorage.setItem("initDate-token", new Date().getTime());
