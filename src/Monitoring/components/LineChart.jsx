@@ -74,7 +74,7 @@ export const LineChart = ({ data, curve, legendBottom, legendLeft="" }) => {
         tickPadding: 5,
         tickRotation: 0,
         legend: legendLeft,   
-        legendOffset: -48,
+        legendOffset: -70,
         legendPosition: "middle",
       }}
       enableGridX={false}
@@ -91,7 +91,7 @@ export const LineChart = ({ data, curve, legendBottom, legendLeft="" }) => {
           anchor: "bottom-right",
           direction: "column",
           justify: false,
-          translateX: 112,
+          translateX: 118,
           translateY: 10,
           itemsSpacing: 0,
           itemDirection: "left-to-right",

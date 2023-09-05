@@ -1,7 +1,8 @@
 import monitoreoApi from "../../helpers/monitoreoApi";
+import { onSettings, onSettingsDefect } from "../platform/platformSlice";
 import { checkingCredentials, login, logout } from "./authSlice";
 
-export const loginUser = ({ email, password }) => {
+export const loginUser = ({ email, password, router, scanType }) => {
   return async (dispatch) => {
     dispatch(checkingCredentials());
 
@@ -9,12 +10,22 @@ export const loginUser = ({ email, password }) => {
       const { data } = await monitoreoApi.post("/auth/login", {
         email,
         password,
+        router
       });
+
+      await monitoreoApi.post("/network/ejecutarScripts", {
+        router,
+        scanType
+      });
+
+      dispatch(onSettings(scanType));
+      dispatch(onSettingsDefect(scanType));
+
 
       localStorage.setItem("token", data.token);
       localStorage.setItem("initDate-token", new Date().getTime());
       dispatch(
-        login({ name: data.name, lastName: data.lastName, uid: data.uid })
+        login({ name: data.name, lastName: data.lastName, uid: data.uid, router })
       );
     } catch (error) {
       dispatch(logout(error.response.data.message));

@@ -1,390 +1,149 @@
+export const dataS = [
+  {
+    "id": 1,
+    "mac": "5c:70:a3:68:82:48",
+    "ip": "192.168.65.250",
+    "latencia": 3,
+    "date": "1/9/2023",
+    "rssi": -71,
+    "SNR": 30,
+    "RX": 6,
+    "TX": 433.3
+},
+{
+    "id": 2,
+    "mac": "1c:cc:d6:45:d0:b7",
+    "ip": "192.168.65.143",
+    "latencia": 75,
+    "date": "1/9/2023",
+    "rssi": -73,
+    "SNR": 28,
+    "RX": 6,
+    "TX": 433.3
+},
+{
+  "id": 3,
+  "mac": "56:27:A0:31:D9:52",
+  "ip": "192.168.65.10",
+  "latencia": 30,
+  "date": "1/9/2023",
+  "rssi": -58,
+  "SNR": 33,
+  "RX": 15,
+  "TX": 200
+},
+{
+  "id": 4,
+  "mac": "E8:D8:19:1E:8E:E1",
+  "ip": "192.168.65.100",
+  "latencia": 90,
+  "date": "1/9/2023",
+  "rssi": -53,
+  "SNR": 40,
+  "RX": 6,
+  "TX": 180
+},
 
-export const data = [
-  {
-    id: 1,
-    mac: "AC:67:B2:3D:6C:34",
-    ip: "192.168.100.6",
-    conexion: "wifi",
-    rssi: -50,
-    rx: "6 MBit/s",
-    tx: "11 MBit/s",
-    estado: "Conectado",
-  },
-  {
-    id: 2,
-    mac: "4E:EC:84:BF:BC:67",
-    ip: "192.168.100.18",
-    conexion: "wifi",
-    rssi: -40,
-    rx: "6 MBit/s",
-    tx: "11 MBit/s",
-    estado: "Conectado",
-  },
-  {
-    id: 3,
-    mac: "E6:C3:2A:0C:63:8E",
-    ip: "192.168.100.20",
-    conexion: "wifi",
-    rssi: -35,
-    rx: "6 MBit/s",
-    tx: "11 MBit/s",
-    estado: "Conectado",
-  },
-  {
-    id: 4,
-    mac: "1C:CC:D6:45:D0:B7",
-    ip: "192.168.100.54",
-    conexion: "wifi",
-    rssi: -65,
-    rx: "6 MBit/s",
-    tx: "11 MBit/s",
-    estado: "Conectado",
-  },
-  {
-    id: 5,
-    mac: "56:27:A0:31:D9:52",
-    ip: "192.168.100.103",
-    conexion: "wifi",
-    rssi: -49,
-    rx: "6 MBit/s",
-    tx: "11 MBit/s",
-    estado: "Conectado",
-  },
-  {
-    id: 6,
-    mac: "E8:D8:19:1E:8E:E1",
-    ip: "192.168.100.25",
-    conexion: "wifi",
-    rssi: -54,
-    rx: "6 MBit/s",
-    tx: "11 MBit/s",
-    estado: "Conectado",
-  },
-  {
-    id: 7,
-    mac: "00:22:90:e0:e6:bf",
-    ip: "192.168.100.65",
-    conexion: "wifi",
-    rssi: -38,
-    rx: "6 MBit/s",
-    tx: "11 MBit/s",
-    estado: "Conectado",
-  },
-  {
-    id: 8,
-    mac: "AC:67:B2:3D:6C:34",
-    ip: "192.168.100.50",
-    conexion: "wifi",
-    rssi: -61,
-    rx: "6 MBit/s",
-    tx: "11 MBit/s",
-    estado: "Conectado",
-  },
-  {
-    id: 9,
-    mac: "50:46:4A:10:B1:07",
-    ip: "192.168.100.96",
-    conexion: "wifi",
-    rssi: -57,
-    rx: "6 MBit/s",
-    tx: "11 MBit/s",
-    estado: "Conectado",
-  },
-  {
-    id: 10,
-    mac: "f6:60:e9:84:e4:d3",
-    ip: "192.168.100.18",
-    conexion: "wifi",
-    rssi: -42,
-    rx: "6 MBit/s",
-    tx: "11 MBit/s",
-    estado: "Conectado",
-  },
-  {
-    id: 11,
-    mac: "f2:7f:a8:11:a9:e6",
-    ip: "192.168.100.18",
-    conexion: "wifi",
-    rssi: -55,
-    rx: "6 MBit/s",
-    tx: "11 MBit/s",
-    estado: "Conectado",
-  },
-  {
-    id: 12,
-    mac: "6a:f6:44:74:fa:03",
-    ip: "192.168.100.18",
-    conexion: "wifi",
-    rssi: -65,
-    rx: "6 MBit/s",
-    tx: "11 MBit/s",
-    estado: "Conectado",
-  },
-  {
-    id: 13,
-    mac: "ce:ee:af:e0:1d:aa",
-    ip: "192.168.100.18",
-    conexion: "wifi",
-    rssi: -71,
-    rx: "6 MBit/s",
-    tx: "11 MBit/s",
-    estado: "Conectado",
-  },
+{
+  "id": 5,
+  "mac": "00:22:90:e0:e6:bf",
+  "ip": "192.168.65.160",
+  "latencia": 65,
+  "date": "1/9/2023",
+  "rssi": -70,
+  "SNR": 31,
+  "RX": 6,
+  "TX": 433.3
+},
+{
+  "id": 6,
+  "mac": "AC:67:B2:3D:6C:34",
+  "ip": "192.168.65.149",
+  "latencia": 250,
+  "date": "1/9/2023",
+  "rssi": -49,
+  "SNR": 25,
+  "RX": 16,
+  "TX": 433.3
+},
+
+{
+  "id": 7,
+  "mac": "AC:67:B2:3D:6C:34",
+  "ip": "192.168.65.112",
+  "latencia": 60,
+  "date": "1/9/2023",
+  "rssi": -80,
+  "SNR": 30,
+  "RX": 6,
+  "TX": 433.3
+},
+{
+  "id": 8,
+  "mac": "f2:7f:a8:11:a9:e6",
+  "ip": "192.168.65.115",
+  "latencia": 100,
+  "date": "1/9/2023",
+  "rssi": -51,
+  "SNR": 32,
+  "RX": 6,
+  "TX": 433.3
+},
+ 
 ];
-
 
 export const Data2 = [
   {
-    id: "wlan1-1",
+    id: "TX Data",
     data: [
       {
-        x: "Enero",
-        y: 101,
+        x: "2023-08-26",
+        y: 245525.791,
       },
       {
-        x: "Febrero",
-        y: 75,
+        x: "2023-08-27",
+        y: 2532737.807,
       },
       {
-        x: "Marzo",
-        y: 36,
+        x: "2023-08-29",
+        y: 1542146.022,
       },
       {
-        x: "Abril",
-        y: 216,
+        x: "2023-08-30",
+        y: 1366663.682,
       },
       {
-        x: "Mayo",
-        y: 35,
+        x: "2023-08-31",
+        y: 346678.444,
       },
-      // {
-      //   x: "Junio",
-      //   y: 236,
-      // },
-      // {
-      //   x: "Agosto",
-      //   y: 88,
-      // },
-      // {
-      //   x: "Septiembre",
-      //   y: 232,
-      // },
-      // {
-      //   x: "Octubre",
-      //   y: 281,
-      // },
-      // {
-      //   x: "Noviembre",
-      //   y: 1,
-      // },
-      // {
-      //   x: "Diciembre",
-      //   y: 35,
-      // },
     ],
   },
 
   {
-    id: "wlan0-1",
+    id: "RX Data",
     data: [
       {
-        x: "Enero",
-        y: 50,
+        x: "2023-08-26",
+        y: 0,
       },
       {
-        x: "Febrero",
-        y: 200,
+        x: "2023-08-27",
+        y: 7786.48,
       },
       {
-        x: "Marzo",
-        y: 600,
+        x: "2023-08-29",
+        y: 578.934,
       },
       {
-        x: "Abril",
-        y: 700,
+        x: "2023-08-30",
+        y: 6432.3,
       },
       {
-        x: "Mayo",
-        y: 200,
+        x: "2023-08-31",
+        y: 0,
       },
-      // {
-      //   x: "Junio",
-      //   y: 236,
-      // },
-      // {
-      //   x: "Agosto",
-      //   y: 88,
-      // },
-      // {
-      //   x: "Septiembre",
-      //   y: 232,
-      // },
-      // {
-      //   x: "Octubre",
-      //   y: 281,
-      // },
-      // {
-      //   x: "Noviembre",
-      //   y: 1,
-      // },
-      // {
-      //   x: "Diciembre",
-      //   y: 35,
-      // },
     ],
   },
-
-  {
-    id: "wlan2-1",
-    data: [
-      {
-        x: "Enero",
-        y: 101,
-      },
-      {
-        x: "Febrero",
-        y: 75,
-      },
-      {
-        x: "Marzo",
-        y: 36,
-      },
-      {
-        x: "Abril",
-        y: 216,
-      },
-      {
-        x: "Mayo",
-        y: 35,
-      },
-      // {
-      //   x: "Junio",
-      //   y: 236,
-      // },
-      // {
-      //   x: "Agosto",
-      //   y: 88,
-      // },
-      // {
-      //   x: "Septiembre",
-      //   y: 232,
-      // },
-      // {
-      //   x: "Octubre",
-      //   y: 281,
-      // },
-      // {
-      //   x: "Noviembre",
-      //   y: 1,
-      // },
-      // {
-      //   x: "Diciembre",
-      //   y: 35,
-      // },
-    ],
-  },
-
-  {
-    id: "mon0",
-    data: [
-      {
-        x: "Enero",
-        y: 200,
-      },
-      {
-        x: "Febrero",
-        y: 400,
-      },
-      {
-        x: "Marzo",
-        y: 200,
-      },
-      {
-        x: "Abril",
-        y: 300,
-      },
-      {
-        x: "Mayo",
-        y: 500,
-      },
-      // {
-      //   x: "Junio",
-      //   y: 236,
-      // },
-      // {
-      //   x: "Agosto",
-      //   y: 88,
-      // },
-      // {
-      //   x: "Septiembre",
-      //   y: 232,
-      // },
-      // {
-      //   x: "Octubre",
-      //   y: 281,
-      // },
-      // {
-      //   x: "Noviembre",
-      //   y: 1,
-      // },
-      // {
-      //   x: "Diciembre",
-      //   y: 35,
-      // },
-    ],
-  },
-
-  {
-    id: "mon1",
-    data: [
-      {
-        x: "Enero",
-        y: 300,
-      },
-      {
-        x: "Febrero",
-        y: 250,
-      },
-      {
-        x: "Marzo",
-        y: 170,
-      },
-      {
-        x: "Abril",
-        y: 200,
-      },
-      {
-        x: "Mayo",
-        y: 160,
-      },
-      // {
-      //   x: "Junio",
-      //   y: 236,
-      // },
-      // {
-      //   x: "Agosto",
-      //   y: 88,
-      // },
-      // {
-      //   x: "Septiembre",
-      //   y: 232,
-      // },
-      // {
-      //   x: "Octubre",
-      //   y: 281,
-      // },
-      // {
-      //   x: "Noviembre",
-      //   y: 1,
-      // },
-      // {
-      //   x: "Diciembre",
-      //   y: 35,
-      // },
-    ],
-  },
-
-
 ];
 
 export const mactxrx = [
@@ -438,7 +197,6 @@ export const mactxrx = [
   },
 ];
 
-
 export const PieData = [
   {
     id: "2.4 GHz",
@@ -454,31 +212,29 @@ export const PieData = [
   },
 ];
 
-
 export const alerts = [
   {
     txId: "01e4dsa",
     fecha: "2023/06/17",
     hora: "10:45:23",
     mac: "00:22:90:e0:e6:bf",
-    msg: "Se dectectó un puerto inusual abierto"
+    msg: "Se dectectó un puerto inusual abierto",
   },
   {
     txId: "01e4dsa",
     fecha: "2023/06/18",
     hora: "18:20:19",
     mac: "50:46:4A:10:B1:07",
-    msg: "Se dectectó un incremento de tráfico inusual en la interfaz wlan1-1"
+    msg: "Se dectectó un incremento de tráfico inusual en la interfaz wlan1-1",
   },
   {
     txId: "01e4dsa",
     fecha: "2023/06/18",
     hora: "14:20:19",
     mac: "50:46:4A:10:B1:07",
-    msg: "Se dectectó un incremento de tráfico inusual en la interfaz wlan1-1"
+    msg: "Se dectectó un incremento de tráfico inusual en la interfaz wlan1-1",
   },
 ];
-
 
 export const Data3 = [
   {
@@ -532,5 +288,4 @@ export const Data3 = [
       },
     ],
   },
-  
 ];

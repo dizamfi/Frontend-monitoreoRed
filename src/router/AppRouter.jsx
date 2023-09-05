@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { CheckingAuth } from "../Authentication/components/CheckingAuth";
 import { useEffect } from "react";
 import { checkAutentication } from "../store/authentication/thunks";
+import { SettingsRoutes } from "../Settings/router/SettingsRoutes";
 
 export const AppRouter = () => {
   // const status = "no-authenticated";
@@ -13,7 +14,7 @@ export const AppRouter = () => {
 
   useEffect(() => {
     dispatch( checkAutentication() );
-  }, [] )
+  }, [dispatch] )
   
 
   if (estado === "checking") {
@@ -23,7 +24,8 @@ export const AppRouter = () => {
   return (
     <Routes>
       {estado === "authenticated" 
-        ? <Route path="/*" element={<MonitoringRoutes />} />
+        // ? <Route path="/*" element={<SettingsRoutes />} />
+        ?  <Route path="/*" element={<MonitoringRoutes />} /> 
         : <Route path="/auth/*" element={<AuthRoutes />} />
       }
 

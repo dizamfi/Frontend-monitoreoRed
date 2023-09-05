@@ -50,6 +50,8 @@ export const MySideBar = () => {
 
     window.addEventListener("resize", handleResize);
 
+    
+
     return () => {
       window.removeEventListener("resize", handleResize);
     };
@@ -113,53 +115,60 @@ export const MySideBar = () => {
                 <img
                   alt="logo"
                   width="60px"
-                  height="25px"
-                  src={"../../assets/cti-logo2.png"}
+                  height="60px"
+                  src={"../../assets/WatchNet.svg"}
                   style={{ cursor: "pointer" }}
                 />
               </Box> */}
             </>
           ) : (
-            <Box display="flex" justifyContent="end" margin="20px">
-              <IconButton onClick={() => collapseSidebar()}>
-                <SwitchLeftOutlinedIcon
-                  sx={{
-                    fontSize: "30px",
-                    color: `${colors.green[500]} !important`,
-                  }}
-                />
-              </IconButton>
-              {/* <Box
-                p={1}
-                ml="55px"
-                display="flex"
-                justifyContent={"center"}
-                flexGrow={1}
-              >
-                <img
-                  alt="logo"
-                  width="100px"
-                  height="100px"
-                  src={"../../assets/image2.png"}
-                  style={{ cursor: "pointer", borderRadius: "100%" }}
-                />
+            <>
+            {/* <Box
+                  pt={2}
+                  // ml="55px"
+                  display="flex"
+                  justifyContent={"center"}
+                  // flexGrow={1}
+                >
+                  <img
+                    alt="logo"
+                    width="90px"
+                    height="90px"
+                    src={"../../assets/WatchNet.svg"}
+                    style={{ cursor: "pointer" }}
+                  />
+                </Box> */}
+
+              <Box display="flex" justifyContent="end" margin="20px">
+                <IconButton onClick={() => collapseSidebar()}>
+                  <SwitchLeftOutlinedIcon
+                    sx={{
+                      fontSize: "30px",
+                      color: `${colors.green[500]} !important`,
+                    }}
+                  />
+                </IconButton>
+            
+
+                {/* <Box p={1} justifyContent="start"></Box> */}
               </Box>
 
-              <Box p={1} justifyContent="end"></Box> */}
-            </Box>
+              
+            </>
           )}
 
           {/* <Box display="flex" justifyContent="center" margin="20px">
+            
             <img
               alt="logo"
               width="100px"
               height="100px"
-              src={"../../assets/cti-logo.png"}
+              src={"../../assets/WatchNet.png"}
               style={{ cursor: "pointer", borderRadius: "100%" }}
             />
           </Box> */}
 
-          <Box paddingTop="70px">
+          <Box pt={"60px"}>
             <Item
               title="Dashboard"
               to="/"
@@ -200,7 +209,7 @@ export const MySideBar = () => {
             />
           </Box>
 
-          <Box paddingTop="50px">
+          {/* <Box paddingTop="50px">
             <Typography
               // variant="h6"
               style={{ color: colors.white[700] }}
@@ -216,14 +225,6 @@ export const MySideBar = () => {
               selected={selected}
               setSelected={setSelected}
             />
-            {/* <Typography
-              variant="h6"
-              color={colors.white[400]}
-              sx={{ m: "15px 20px 5px 20px" }}
-            >
-              Data
-            </Typography> */}
-
             <Item
               title="Gráficos"
               to="/devices"
@@ -231,7 +232,7 @@ export const MySideBar = () => {
               selected={selected}
               setSelected={setSelected}
             />
-          </Box>
+          </Box> */}
         </Menu>
       </Sidebar>
     </Box>

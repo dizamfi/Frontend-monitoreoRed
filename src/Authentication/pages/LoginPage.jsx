@@ -1,4 +1,11 @@
-import { Button, Grid, TextField, Typography } from "@mui/material";
+import {
+  Button,
+  Grid,
+  MenuItem,
+  Select,
+  TextField,
+  Typography,
+} from "@mui/material";
 import { AuthLayout } from "../layout/AuthLayout";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
@@ -6,11 +13,13 @@ import { Formik } from "formik";
 import * as yup from "yup";
 import { loginUser } from "../../store/authentication/thunks";
 import ReportGmailerrorredRoundedIcon from "@mui/icons-material/ReportGmailerrorredRounded";
-
+import { onSettings } from "../../store/platform/platformSlice";
 
 const initialValues = {
   email: "",
   password: "",
+  router: "",
+  scanType: "SNMP",
 };
 
 const userSchema = yup.object().shape({
@@ -26,6 +35,15 @@ const userSchema = yup.object().shape({
       "La contraseña debe poseer al menos una letra y un número"
     )
     .required("La contraseña es obligatoria"),
+  router: yup
+    .string()
+    .matches(
+      /^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/,
+      "El formato no es el correcto"
+    )
+    .required("Ingrese la red a escanear"),
+
+  scanType: yup.string().required("Seleccione el tipo de escaneo"),
 });
 
 export const LoginPage = () => {
@@ -44,7 +62,12 @@ export const LoginPage = () => {
         <Typography variant="h8" sx={{ mb: 6, mr: 1 }}>
           ¿No tienes una cuenta?
         </Typography>
-        <Link style={{ textDecoration: 'none', color: 'rgb(29, 155, 240)' }} to="/auth/register">Regístrate</Link>
+        <Link
+          style={{ textDecoration: "none", color: "rgb(29, 155, 240)" }}
+          to="/auth/register"
+        >
+          Regístrate
+        </Link>
       </Grid>
 
       <Formik
@@ -80,7 +103,7 @@ export const LoginPage = () => {
                   // }, }}
                 />
               </Grid>
-              <Grid item xs={12} sx={{ mt: 3, mb: 2}}>
+              <Grid item xs={12} sx={{ mt: 3, mb: 3 }}>
                 <TextField
                   label="contraseña"
                   type="text"
@@ -99,6 +122,59 @@ export const LoginPage = () => {
                 />
               </Grid>
 
+              <Grid container spacing={2}>
+                <Grid
+                  item
+                  xs={6}
+                  sx={{ mt: 2, pr: 2, display: "flex", alignItems: "center" }}
+                >
+                  {/* <Typography variant="h8">Dirección del router:</Typography> */}
+                  <TextField
+                    sx={{ pt: 1 }}
+                    label="Ip del router"
+                    type="text"
+                    placeholder="192.168.65.9"
+                    fullWidth
+                    onBlur={handleBlur}
+                    onChange={handleChange}
+                    value={values.router}
+                    name="router"
+                    error={
+                      submitCount > 0 && !!touched.router && !!errors.router
+                    }
+                    helperText={
+                      submitCount > 0 && touched.router && errors.router
+                    }
+                  />
+                </Grid>
+
+                <Grid
+                  item
+                  xs={6}
+                  sx={{
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "center",
+                  }}
+                >
+                  <Typography variant="h8" sx={{ pb: 1 }}>
+                    Seleccione el tipo de escaneo:
+                  </Typography>
+                  <Select
+                    label="Tipo de escaneo"
+                    fullWidth
+                    onBlur={handleBlur}
+                    onChange={handleChange}
+                    value={values.scanType}
+                    name="scanType"
+                  >
+                    <MenuItem value="SNMP">SNMP</MenuItem>
+                    <MenuItem value="SSH">SSH</MenuItem>
+                    <MenuItem value="SNMP y SSH">Ambas</MenuItem>
+                  </Select>
+                </Grid>
+              </Grid>
+
               {errorMessage && (
                 <Grid
                   display="flex"
@@ -110,7 +186,7 @@ export const LoginPage = () => {
                     borderRadius: "5px",
                     minHeight: "50px",
                     backgroundColor: "rgb(255, 236, 240)",
-                    alignItems: "center"
+                    alignItems: "center",
                   }}
                 >
                   <ReportGmailerrorredRoundedIcon

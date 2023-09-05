@@ -6,14 +6,14 @@ import { PieData } from "../../data/data";
 
 
 
-export const PieChart = () => {
+export const PieChart = ({ data }) => {
 
   const theme = useTheme();
   const colors = tonalidad(theme.palette.mode);
 
   return (
 <ResponsivePie
-        data={PieData}
+        data={data}
         theme={{
           axis: {
             domain: {

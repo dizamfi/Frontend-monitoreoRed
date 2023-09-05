@@ -6,8 +6,23 @@ import { MySideBar } from "../components/MySideBar";
 import { TopBar } from "../components/TopBar";
 import { PortsPage } from "../pages/PortsPage";
 import { AlertasPage } from "../pages/AlertasPage";
+import { useDispatch, useSelector } from "react-redux";
+import { registrosTxRxByMac } from "../../store/platform/thunks";
+import { useEffect } from "react";
 
 export const MonitoringRoutes = () => {
+  const dispatch = useDispatch();
+  const { TxRxByMac } = useSelector((state) => state.platform);
+
+  useEffect(() => {
+    dispatch(registrosTxRxByMac());
+    console.log(TxRxByMac);
+
+    
+    
+    
+  }, [dispatch]);
+
   return (
    
 

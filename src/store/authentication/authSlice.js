@@ -23,6 +23,11 @@ export const authenticationSlice = createSlice({
       state.usuario = {};
       state.errorMessage = payload;
     },
+
+    // settingNet: (state, {payload}) => {
+    //   state.estado = "authenticated";
+
+    // }
   },
 });
 
